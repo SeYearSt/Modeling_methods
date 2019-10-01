@@ -117,11 +117,11 @@ if __name__ == '__main__':
   # plt.hist(distr_exp, bins=interval_info_exp[5])
   # plt.show()
 
-  print("mean norm theoretical: {}, mean norm sample: {}".format(mean_norm_teor, mean_norm))
-  print("std norm theoretical: {},std norm sample: {}".format(std_norm_teor, std_norm))
+  print("mean norm theoretical: {} mean norm sample: {}".format(mean_norm_teor, mean_norm))
+  print("std norm theoretical: {} std norm sample: {}".format(std_norm_teor, std_norm))
   print()
 
 
-  print("mean exp theoretical: {}, mean exp sample: {}".format(exp_mean_teor, mean_exp))
-  print("std exp theoretical: {},std exp sample: {}".format(std_exp_teor, std_exp))
+  print("mean exp theoretical: {} mean exp sample: {}".format(exp_mean_teor, mean_exp))
+  print("std exp theoretical: {} std exp sample: {}".format(std_exp_teor, std_exp))
   print()
