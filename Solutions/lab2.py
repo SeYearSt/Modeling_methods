@@ -1,3 +1,7 @@
+from prettytable import PrettyTable
+import numpy as np
+import matplotlib.pyplot as plt
+
 if __name__ == '__main__':
   eps = 0.00001
   n = n_start = 10000
