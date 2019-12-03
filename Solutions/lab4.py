@@ -2,27 +2,29 @@ import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 
-temperature_min = 0
-temperature_max = 30
+temperature_min = 20
+temperature_max = 120
 temperature_diff_min = -5
 temperature_diff_max = 5
 power_min = 0
 power_max = 100
 
-inputs = [[1, 4], [1, -4], [1, 2], [1, 1], [10, -4], [10, -2], [10, 1],[10, 4],
-          [20, -4], [20, -3], [20,-2], [20,-1],[20,1], [20,3], [20,4],
-          [30, -4], [30, -3], [30, 1], [30, 3]]
+# inputs = [[1, 4], [1, -4], [1, 2], [1, 1], [10, -4], [10, -2], [10, 1],[10, 4],
+#           [20, -4], [20, -3], [20,-2], [20,-1],[20,1], [20,3], [20,4],
+#           [30, -4], [30, -3], [30, 1], [30, 3]]
+
+inputs = [[20, -4], [20, 4], [70, 0], [70, -4], [70, 4], [60, 0], [60, -4], [60, 4], [120, -4], [120, 4]]
 # define scope
 temperature = ctrl.Antecedent(np.arange(temperature_min, temperature_max, 1), 'temperature')
 temperature_diff = ctrl.Antecedent(np.arange(temperature_diff_min, temperature_diff_max, 1), 'temperature_diff')
 power = ctrl.Consequent(np.arange(power_min, power_max, 1), 'power')
 
 # define membership functions
-temperature['low'] = fuzz.trimf(temperature.universe, [0, 10, 17])
-temperature['optimal'] = fuzz.trimf(temperature.universe, [16, 20, 22])
-temperature['high'] = fuzz.trimf(temperature.universe, [20, 30, 30])
+temperature['low'] = fuzz.trimf(temperature.universe, [20, 20, 60])
+temperature['optimal'] = fuzz.trimf(temperature.universe, [50, 60, 80])
+temperature['high'] = fuzz.trimf(temperature.universe, [70, 120, 120])
 
-temperature_diff['decrease'] = fuzz.trimf(temperature_diff.universe, [-5, -3, -3])
+temperature_diff['decrease'] = fuzz.trimf(temperature_diff.universe, [-5, -5, -3])
 temperature_diff['stable'] = fuzz.trimf(temperature_diff.universe, [-3, 0, 3])
 temperature_diff['increase'] = fuzz.trimf(temperature_diff.universe, [1, 5, 5])
 
